@@ -1,0 +1,38 @@
+<div th:insert="base"></div>
+<div class="text-center">
+    <h2>Search Wallet Form</h2>
+    <p>Input name of Wallet</p>
+</div>
+
+<div class="container">
+    <form method="post" th:action="@{/tags}" th:object="${tag}" >
+        <label for="searchByTitle">Tag</label>
+        <input id="searchByTitle" class="form-styling" type="text"
+               name="name"/>
+        <input class="button button_search" type="submit" value="Search" >
+    </form>
+</div>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Sum</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Currency</th>
+        <th>Wallet</th>
+        <th>Tag</th>
+    </tr>
+    <tr th:each="wallets : ${res}">
+    <tr th:each="transaction : ${res}">
+        <td th:text="${transaction.id}"></td>
+        <td th:text="${transaction.type}"></td>
+        <td th:text="${transaction.text}"></td>
+        <td th:text="${transaction.category}"></td>
+        <td th:text="${transaction.subcategory}"></td>
+        <td th:text="${transaction.currency}"></td>
+        <td th:text="${transaction.wallet}"></td>
+        <td th:text="${transaction.tag}"></td>
+    <tr>
+    </tr>
+</table>

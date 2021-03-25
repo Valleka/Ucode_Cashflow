@@ -1,0 +1,26 @@
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+<div th:insert="base"></div>
+<div><h1>Result</h1>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>type</th>
+            <th>text</th>
+            <th>category</th>
+            <th>subcategory</th>
+            <th>currency</th>
+            <th>wallet</th>
+            <th>tag</th>
+        </tr>
+        <tr th:each="transaction : ${transactions}">
+            <td th:text="${transaction.id}"></td>
+            <td th:text="${transaction.type}"></td>
+            <td th:text="${transaction.text}"></td>
+            <td th:text="${transaction.category}"></td>
+            <td th:text="${transaction.subcategory}"></td>
+            <td th:text="${transaction.currency}"></td>
+            <td th:text="${transaction.wallet}"></td>
+            <td th:text="${transaction.tag}"></td>
+        </tr>
+    </table>
+    <div th:insert="base_2"></div>

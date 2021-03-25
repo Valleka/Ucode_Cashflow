@@ -1,0 +1,26 @@
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+
+<div th:insert="base"></div>
+
+<table border="1" class="container">
+    <p>Balance: <span th:utext="${balance}"></span></p>
+    <tr style="border: #1F1F1F solid 2px;">
+        <th>Type</th>
+        <th>Time</th>
+        <th>Currency</th>
+        <th>Category</th>
+        <th>Amount</th>
+    </tr>
+    <tr th:each="mono : ${monos}">
+        <td th:text="${mono.operationAmount}" th:class="${mono.operationAmount == 'Expense' ? 'Expense' : 'Income'}"></td>
+        <td th:text="${mono.time}" th:class="${mono.operationAmount == 'Expense' ? 'Expense' : 'Income'}"></td>
+        <td th:text="${mono.currencyCode}" th:class="${mono.operationAmount == 'Expense' ? 'Expense' : 'Income'}"></td>
+        <td th:text="${mono.description}" th:class="${mono.operationAmount == 'Expense' ? 'Expense' : 'Income'}"></td>
+        <td th:text="${mono.amount}" th:class="${mono.operationAmount == 'Expense' ? 'Expense' : 'Income'}"></td>
+    </tr>
+</table>
+<div>
+    <br>
+    <br>
+</div>
+<div th:insert="base_2"></div>

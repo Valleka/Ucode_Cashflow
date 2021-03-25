@@ -1,0 +1,82 @@
+<div th:insert="base"></div>
+<div class="text-center">
+        <h2>Records Form</h2>
+        <p>Input your Income or Expense</p>
+</div>
+    
+<div class="container">
+    <form method="post" th:action="@{/records}" th:object="${transaction}" >
+        <div class="row mb-3">
+            <div class="col">
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <select th:field="*{type}" id="type" class="form-control">
+                        <option th:each="type : ${allType}" th:value="${type}" th:text="${type}" value="">Select Type of Financial Records</option>
+                </select>
+            </div>
+            <div class="col">
+            <div class="form-group">
+                <label for="amount">Currency</label>
+                <input th:field="*{currency}" id="amount"  type="text" class="form-control">
+            </div>
+            </div>
+        </div>
+        <div class="row mb-3" id="rowWalTag">
+            <div class="col">
+                <div class="form-group">
+                    <label for="amount">Wallet</label>
+                    <input id="wallet" th:field="*{wallet}" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+            <div class="form-group">
+                <label for="amount">Tag</label>
+                <input id="tag" th:field="*{tag}" type="text" class="form-control">
+            </div>
+            </div>
+        </div>
+        <!-- Select Category -->
+        <div class="row mb-3">
+            <div class="col">
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select th:field="*{category}" id="category" class="form-control">
+                        <option th:each="category : ${allCategory}" th:value="${category}" th:text="${category}" value="">Select Type of Category</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <label for="sub_category">Sub-Category</label>
+                <select th:field="*{subcategory}" name="sub_category" id="sub_category" class="form-control sub_category selectFilter">
+                    <option th:each="subcategory : ${allCategory}" th:value="${subcategory}" th:text="${subcategory}" value="">Select Type Sub-Category</option>
+                </select>
+            </div>
+        </div>
+        <!-- Payment Type and Amount-->
+        <div class="row mb-3">
+            <div class="col">
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input id="amount" th:field="*{text}" type="number" min="0" class="form-control">
+                </div>
+            </div>
+        </div>
+        <!-- Datetimepicker -->
+        <div class="row mb-3">
+            <div class="col-6">
+                <label for="date">Select Date</label>
+                <input th:field="*{date}" id="date" type="date" name="date" class="form-control">
+            </div>
+            <div class="col-6">
+                <label for="time">Select Time</label>
+                <input th:field="*{time}" id="time" type="time" name="time" class="form-control">
+            </div>
+        </div>
+        <hr>
+        <!-- Button -->
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Add Record</button>
+        </div>
+    </form>
+</div>
+<div th:insert="base_2"></div>
